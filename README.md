@@ -15,3 +15,6 @@ Built with **HTML, CSS, and JavaScript** — no frameworks, no fluff — designe
 - 📬 **Contact Form** — integrated with Netlify Forms
 
 ## 📂 Project Structure
+
+## License
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
