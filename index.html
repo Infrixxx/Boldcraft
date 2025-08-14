@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BoldCraft</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoldCraft - Build Skills</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/utilities.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">BoldCraft</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Tracker</a>
-      <a href="#">Gallery</a>
-      <a href="#">Contact</a>
+    <header class="header">
+        <h1>🌟 BoldCraft</h1>
+        <p>Build Skills. Craft Your Future.</p>
+    </header>
+    
+    <section class="dashboard">
+        <div class="streak-container">
+            <h2>🔥 Current Streak: <span id="streak-count">0</span> days</h2>
+            <div class="calendar" id="calendar"></div>
+        </div>
+        
+        <div class="badge-rack" id="badge-rack">
+            <!-- Badges injected via JavaScript -->
+        </div>
+    </section>
+    
+    <div class="confetti-container" id="confetti"></div>
+    
+    <nav class="nav">
+        <a href="index.html" class="active">🏠 Dashboard</a>
+        <a href="tracker.html">📝 Track Skill</a>
+        <a href="gallery.html">🏆 Gallery</a>
+        <a href="contact.html">📬 Contact</a>
     </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1 class="fade-in">Level Up Every Day</h1>
-      <p class="fade-in-delay">Track your skills, celebrate your wins, share your progress.</p>
-      <div class="buttons">
-        <a href="#" class="btn primary bounce-in">Start Tracking</a>
-        <a href="#" class="btn secondary bounce-in-delay">View Badges</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Badges Section -->
-  <section class="badges">
-    <h2>Earn & Collect</h2>
-    <div class="badge-container">
-      <img src="https://img.icons8.com/color/96/000000/trophy.png" alt="Badge" class="scroll-reveal" />
-      <img src="https://img.icons8.com/color/96/000000/medal.png" alt="Badge" class="scroll-reveal" />
-      <img src="https://img.icons8.com/color/96/000000/certificate.png" alt="Badge" class="scroll-reveal" />
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 BoldCraft. All rights reserved.</p>
-  </footer>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/confetti.js"></script>
 </body>
 </html>

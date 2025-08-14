@@ -1,19 +1,11 @@
 [build]
-  publish = "."
-  command = ""
-
-[build.processing.html]
-  pretty_urls = true
+  publish = "/"
+  command = "echo 'No build needed'"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[dev]
-  port = 8888
-  autoLaunch = true
-
-[forms]
-  [forms."contact"]
-    success = "/contact.html"
+[context.production.environment]
+  NODE_VERSION = "18"
