@@ -1,9 +1,13 @@
 // Skill data structure
+let currentDate = new Date();
+let currentMonth = currentDate.getMonth();
+let currentYear = currentDate.getFullYear();
 const skills = JSON.parse(localStorage.getItem('skills')) || [];
 
 // DOM Elements
 const streakCount = document.getElementById('streak-count');
-const calendar = document.getElementById('calendar');
+const monthYearEl = document.getElementById('current-month-year');
+const daysContainer = document.getElementById('calendar-days');
 const badgeRack = document.getElementById('badge-rack');
 
 // Initialize app
@@ -11,6 +15,7 @@ function initApp() {
     updateStreakDisplay();
     generateCalendar();
     renderBadges();
+    setupMonthNavigation();
 }
 
 // Streak tracking
@@ -52,21 +57,68 @@ function checkMilestones(streak) {
 
 // Calendar generator
 function generateCalendar() {
-    calendar.innerHTML = '';
-    const daysInMonth = new Date().getDate();
+    // Clear existing days
+    daysContainer.innerHTML = '';
+
+    // Set month/year header
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                       'July', 'August', 'September', 'October', 'November', 'December'];
+    monthYearEl.textContent = `${monthNames[currentMonth]} ${currentYear}`;
     
+    // Get first day of month and days in month
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    
+    // Create empty slots for days before first day
+    for (let i = 0; i < firstDay; i++) {
+        const emptyDay = document.createElement('div');
+        emptyDay.className = 'calendar-day empty';
+        daysContainer.appendChild(emptyDay);
+    }
+    
+    // Create days of month
     for (let i = 1; i <= daysInMonth; i++) {
         const dayEl = document.createElement('div');
         dayEl.className = 'calendar-day';
         dayEl.textContent = i;
         
-        if (i <= new Date().getDate()) {
-            const logged = localStorage.getItem(`day-${i}`);
-            dayEl.classList.toggle('active', logged === 'true');
+        // Highlight today
+        const today = new Date();
+        if (i === today.getDate() && 
+            currentMonth === today.getMonth() && 
+            currentYear === today.getFullYear()) {
+            dayEl.classList.add('today');
         }
         
-        calendar.appendChild(dayEl);
+        // Mark if progress was logged
+        const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+        if (localStorage.getItem(`progress-${dateKey}`)) {
+            dayEl.classList.add('active');
+        }
+        
+        daysContainer.appendChild(dayEl);
     }
+}
+
+// Month navigation
+function setupMonthNavigation() {
+    document.getElementById('prev-month').addEventListener('click', () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
+        generateCalendar();
+    });
+    
+    document.getElementById('next-month').addEventListener('click', () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        generateCalendar();
+    });
 }
 
 // Badge system
