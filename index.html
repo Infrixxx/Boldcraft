@@ -3,36 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BoldCraft | Build Skills. Craft Your Future.</title>
-  <link rel="stylesheet" href="styles/base.css" />
-  <link rel="stylesheet" href="styles/components.css" />
+  <title>BoldCraft</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <img src="assets/logo.svg" alt="BoldCraft Logo" class="logo" />
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">BoldCraft</div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="tracker.html">Tracker</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">Tracker</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
     </nav>
   </header>
 
-  <main class="hero">
-    <h1 class="hero-title">Level Up Every Day</h1>
-    <p class="hero-subtitle">Track your skills, celebrate your wins, share your progress.</p>
-    <div class="cta-buttons">
-      <a href="tracker.html" class="btn-primary">Start Tracking</a>
-      <a href="gallery.html" class="btn-secondary">View Badges</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="fade-in">Level Up Every Day</h1>
+      <p class="fade-in-delay">Track your skills, celebrate your wins, share your progress.</p>
+      <div class="buttons">
+        <a href="#" class="btn primary bounce-in">Start Tracking</a>
+        <a href="#" class="btn secondary bounce-in-delay">View Badges</a>
+      </div>
     </div>
-    <div class="badge-preview">
-      <img src="assets/badges/badge1.svg" alt="Badge" class="badge" />
-      <img src="assets/badges/badge2.svg" alt="Badge" class="badge" />
-      <img src="assets/badges/badge3.svg" alt="Badge" class="badge" />
-    </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
+  <!-- Badges Section -->
+  <section class="badges">
+    <h2>Earn & Collect</h2>
+    <div class="badge-container">
+      <img src="https://img.icons8.com/color/96/000000/trophy.png" alt="Badge" class="scroll-reveal" />
+      <img src="https://img.icons8.com/color/96/000000/medal.png" alt="Badge" class="scroll-reveal" />
+      <img src="https://img.icons8.com/color/96/000000/certificate.png" alt="Badge" class="scroll-reveal" />
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
     <p>© 2025 BoldCraft. All rights reserved.</p>
   </footer>
 </body>
