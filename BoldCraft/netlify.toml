@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+  command = ""
+
+[build.processing.html]
+  pretty_urls = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  port = 8888
+  autoLaunch = true
+
+[forms]
+  [forms."contact"]
+    success = "/contact.html"
