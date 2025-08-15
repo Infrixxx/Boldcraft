@@ -308,3 +308,15 @@ button:hover {
         font-size: 0.9rem;
     }
 }
+
+/*watermark */
+.competition-watermark {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 9999;
+  background: rgba(255,255,255,0.9);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
